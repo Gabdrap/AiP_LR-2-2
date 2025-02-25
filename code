@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cstdlib>
+#include <Windows.h>
+#include <ctime>
+
+using namespace std;
+
+int main() {
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    const int size = 1000;
+    int arr[size];
+
+    srand(static_cast<unsigned int>(time(0)));
+
+    for (int i = 0; i < size; i++) {
+        arr[i] = rand() % 1000;
+    }
+
+    int d = 0;
+
+    for (int f = 0; f < size; f++) {
+        if (arr[f] != arr[size - 1]) {
+            d++;
+        }
+    }
+
+    int a;
+    int s = 0;
+    cout << "Введите значение a: ";
+    cin >> a;
+    for (int t = 0; t < size; t++) {
+        if (arr[t] % a == 0) {
+            s++;
+        }
+    }
+
+    cout << "Количество элементов, отличных от последнего элемента: " << d << '\n';
+    cout << "количество элементов, кратных " << a << ": " << s << '\n';
+    cout << "Bсе элементы массива, являющиеся двузначными числами: "  << '\n';
+    return 0;
+}
